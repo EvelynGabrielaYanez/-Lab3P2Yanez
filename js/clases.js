@@ -566,7 +566,7 @@ const url = `https://${host}:${port}`;
       document.getElementById("spinnerBack").style.display = "none";
     } else if (this.readyState == 4 && this.status != 200) {
       document.getElementById("spinnerBack").style.display = "none";
-      swal("Error", "No se pudo obtener el listado", "error");
+      swal("Error", "No se pudo insertar el vehiculo", "error");
     }
   };
   console.log(requestUrl);
