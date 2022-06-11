@@ -612,7 +612,7 @@ const url = `https://${host}:${port}`;
   } else {
     document.getElementById("spinnerBack").style.display = "none";
     volver();
-    throw new Error(`Ocurrio un error al modificar el vehiculo - ID: ${data.dni}`)
+    throw new Error(`Ocurrio un error al modificar el vehiculo - ID: ${data.Id}`)
   }
 }
 
