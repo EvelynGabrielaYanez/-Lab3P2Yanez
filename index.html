@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    *,
+    html {
+      margin: 0;
+      padding: 0;
+    }
+
+    #cuerpoPrincipal {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: grey;
+      height: 100vh;
+      width: 100vw;
+    }
+
+    #formABM {
+      background-color: #D1C4E9;
+      padding: 2vh;
+      height: 40vh;
+      display: flex;
+      justify-content: space-evenly;
+      flex-direction: column;
+      min-height: 400px;
+      min-width: 40vh;
+    }
+
+    #registros {
+      background-color: #D1C4E9;
+      padding: 2vh;
+    }
+
+    .titulo {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    table {
+      border-collapse: collapse;
+    }
+
+    td {
+      border: 1px solid rgb(121, 118, 118);
+      text-align: center;
+      height: 20px;
+      padding: 3px 3px;
+      font-size: 15px;
+    }
+
+    th {
+      border: 1px solid rgb(0, 0, 0);
+      text-align: center;
+      padding: 3px 3px;
+      font-size: 15px;
+    }
+
+    .tableButton {
+      width: 100%;
+      height: 100%;
+      text-align: center;
+    }
+
+    .cuerpoTabla {
+      margin-top: 10px;
+    }
+
+    .cuerpoTabla table {
+      width: 100%;
+      margin: 5px auto 10px;
+      border: 2px solid black;
+    }
+
+    thead {
+      background-color: #ab8ce4;
+    }
+
+    tbody tr:nth-child(odd) {
+      background-color: #9FA8DA;
+    }
+
+    tbody tr:nth-child(even) {
+      background-color: #B39DDB ;
+    }
+    .botoneraPie {
+      display: flex;
+      justify-content: space-evenly;
+      margin-top: 10px;
+    }
+
+    .labelABM {
+      display: flex;
+      flex-direction: column;
+    }
+
+    h3 {
+      text-align: left;
+      font-size: x-large;
+      font-weight: bold;
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+
+    .loader {
+      border: 3px solid #81807d;
+      border-radius: 50%;
+      border-top: 3px solid #a54e07;
+      width: 60px;
+      height: 60px;
+      -webkit-animation: spin 2s linear infinite;
+      animation: spin 2s linear infinite;
+    }
+
+    @-webkit-keyframes spin {
+      0% { -webkit-transform: rotate(0deg); }
+      100% { -webkit-transform: rotate(360deg); }
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    #spinnerBack {
+      background-color: rgba(0, 0, 0, 0.7);;
+      height: 100vh;
+      width: 100vw;
+      display: flex;
+      position: absolute;
+      justify-content: center;
+      align-items: center;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="cuerpoPrincipal">
+    <div id="registros">
+      <div class="titulo">
+        <h3>Formulario Lista</h3>
+      </div>
+      <div class="cuerpoTabla">
+        <table id="tabla">
+          <thead>
+            <tr>
+              <th id="idColum">ID</th>
+              <th id="fabricanteColumn">FABRICANTE</th>
+              <th id="modeloColumn">MODELO</th>
+              <th id="anoLanzamientoColum">AÑO DE LANZAMIENTO</th>
+              <th id="cantPuertasColumn">CANTIDAD DE PUERTAS</th>
+              <th id="transmisionColum">TRANSMISION 4X4</th>
+              <th id="modificarColum">MODIFICAR</th>
+              <th id="eliminarColum">ELIMINAR</th>
+            </tr>
+          </thead>
+          <tbody id="cuerpo">
+          </tbody>
+        </table>
+      </div>
+      <div class="botoneraPie">
+        <input id="btnAgregarTabla" type="button" value="Agregar Elemento">
+      </div>
+    </div>
+    <div id="formABM">
+      <div class="titulo">
+        <h3 id = "tituloABM">Formulario ABM</h3>
+      </div>
+      <div class="labelABM">
+        <label for="idForm">Id:</label>
+        <input name="idForm" id="idForm" type="number">
+      </div>
+      <div class="labelABM">
+        <label for="fabricanteForm">Fabricante:</label>
+        <input name="fabricanteForm" id="fabricanteForm" type="text">
+      </div>
+      <div class="labelABM">
+        <label for="modeloForm">Modelo:</label>
+        <input name="modeloForm" id="modeloForm" type="text">
+      </div>
+      <div class="labelABM">
+        <label for="anoDeLanzamientoForm">Año de lanzamiento:</label>
+        <input name="anoDeLanzamientoForm" id="anoDeLanzamientoForm" type="number">
+      </div>
+      <div class="labelABM">
+        <label for="tipoVehiculo">Tipo:</label>
+        <select name="tipoVehiculo" id="tipoVehiculo">
+          <option value="Auto">Auto</option>
+          <option value="Camioneta">Camioneta</option>
+        </select>
+      </div>
+      <div class="labelABM" id = "grupoCantidadPuertas">
+        <label for="cantidadPuertasForm" id="lblCursoLetraForm">Cantidad de puertas:</label>
+        <input name="cantidadPuertasForm" id="cantidadPuertasForm" type="number">
+      </div>
+      <div class="labelABM" id = "grupoTransmision">
+        <label for="transmisionForm" id="lblCursoNumeroForm">Transmision 4x4:</label>
+        <input name="transmisionForm" id="transmisionForm" type="text">
+      </div>
+      <div class="botoneraPie" id="botoneraFormABM" >
+        <input id="btnCancelarForm" type="button" value="Cancelar">
+      </div>
+    </div>
+    <div id="spinnerBack">
+      <div class="loader"></div>
+    </div>
+</body>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script type="text/javascript" src="./js/clases.js"></script>
+</html>
