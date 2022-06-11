@@ -569,7 +569,6 @@ const url = `https://${host}:${port}`;
       swal("Error", "No se pudo insertar el vehiculo", "error");
     }
   };
-  console.log(requestUrl);
   xhttp.open("PUT", requestUrl, true);
   xhttp.setRequestHeader("Content-Type", "application/json");
   xhttp.send(data.toStringJson());
